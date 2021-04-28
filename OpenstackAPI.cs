@@ -320,7 +320,7 @@ namespace LTIOpenstackProject
             var getRequest = new RestRequest("/", Method.GET);
 
             getRequest.AddHeader("x-auth-token", scopeToken);
-
+            getRequest.AddHeader("X-OpenStack-Nova-API-Version", "2.19");
             IRestResponse getResponse = instanceURI.Execute(getRequest);
             return getResponse;
         }
@@ -330,9 +330,10 @@ namespace LTIOpenstackProject
             var instanceURI = new RestClient("http://" + serverIP + "/compute/v2.1/servers/" + serverID);
             var putRequest = new RestRequest("/", Method.PUT);
 
-            //var json = "{\"server\": {\"name\": \""+name+ "\",\"description\": \"Sample description\"}}";
-            var json = "{\"server\": {\"name\": \"" + name + "\"}}";
+            var json = "{\"server\": {\"name\": \""+name+ "\",\"description\": \""+desc+"\"}}";
+            //var json = "{\"server\": {\"name\": \"" + name + "\"}}";
             putRequest.AddHeader("x-auth-token", scopeToken);
+            putRequest.AddHeader("X-OpenStack-Nova-API-Version", "2.19");
             putRequest.AddJsonBody(json);
 
             IRestResponse getResponse = instanceURI.Execute(putRequest);
@@ -367,16 +368,19 @@ namespace LTIOpenstackProject
 
         public string accessInstance(string serverIP, string scopeToken,string serverID)
         {
-            var instanceURI = new RestClient("http://" + serverIP + "/compute/v2.1/servers/" + serverID + "/remote-consoles");
+            //var instanceURI = new RestClient("http://" + serverIP + "/compute/v2.1/servers/" + serverID + "/remote-consoles");
+            var instanceURI = new RestClient("http://" + serverIP + "/compute/v2.1/servers/" + serverID + "/action");
             var postRequest = new RestRequest("/", Method.POST);
 
-            var json = "{\"remote_console\": {\"protocol\": \"vnc\",\"type\": \"novnc\"}}";
+            //var json = "{\"remote_console\": {\"protocol\": \"vnc\",\"type\": \"novnc\"}}";
+            var json = "{\"os-getVNCConsole\": {\"type\": \"novnc\"}}";
             postRequest.AddHeader("x-auth-token", scopeToken);
             postRequest.AddJsonBody(json);
 
             IRestResponse getResponse = instanceURI.Execute(postRequest);
             JObject Url = JObject.Parse(getResponse.Content);
-            string url = (string)Url["remote_console"].SelectToken("url");
+            //string url = (string)Url["remote_console"].SelectToken("url");
+            string url = (string)Url["console"].SelectToken("url");
             Console.WriteLine(url);
             //string urlTemp = "http://192.168.113.110:6080/vnc_lite.html?path=%3Ftoken%3D91bd5d0b-9f48-4471-a2ce-8f57c20fc862";
             return url;
