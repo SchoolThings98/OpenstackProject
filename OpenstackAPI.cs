@@ -151,6 +151,17 @@ namespace LTIOpenstackProject
 
         }
 
+        public IRestResponse getZone(string serverIP, string scopeToken, string zoneID)
+        {
+            var instanceURI = new RestClient("http://" + serverIP + "/dns/v2/zones/" + zoneID);
+            var getRequest = new RestRequest("/", Method.GET);
+
+            getRequest.AddHeader("x-auth-token", scopeToken);
+
+            IRestResponse getResponse = instanceURI.Execute(getRequest);
+            return getResponse;
+        }
+
         public IRestResponse createZone(string serverIP, string scopeToken, string name, string email)
         {
             var createZone = new RestClient("http://" + serverIP + "/dns/v2/zones");
@@ -162,6 +173,30 @@ namespace LTIOpenstackProject
             Console.WriteLine(ticketResponse);
             return ticketResponse;
 
+        }
+
+        public IRestResponse removeZone(string serverIP, string scopeToken, string zoneID)
+        {
+            var ticketURL = new RestClient("http://" + serverIP + "/dns/v2/zones/" + zoneID);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
+            deleteRequest.AddHeader("x-auth-token", scopeToken);
+
+            IRestResponse ticketResponse = ticketURL.Execute(deleteRequest);
+            Console.WriteLine(ticketResponse);
+            return ticketResponse;
+        }
+
+        public void editZone(string serverIP, string scopeToken, string zoneID, string email, string ttl, string desc)
+        {
+            var instanceURI = new RestClient("http://" + serverIP + "/dns/v2/zones/" + zoneID);
+            var putRequest = new RestRequest("/", Method.PATCH);
+
+            var json = "{\"email\": \"" + email + "\",\"ttl\": \"" + ttl + "\",\"description\": \"" + desc + "\"}";
+            putRequest.AddHeader("x-auth-token", scopeToken);
+            putRequest.AddJsonBody(json);
+
+            IRestResponse getResponse = instanceURI.Execute(putRequest);
+            Console.WriteLine(getResponse);
         }
 
         public IRestResponse createInstance(string serverIP,string scopeToken,string name, string imageID,string volumeID,string flavorID, string networkID,string count)
