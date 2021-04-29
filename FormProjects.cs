@@ -58,6 +58,9 @@ namespace LTIOpenstackProject
             buttonVolumes.Hide();
             buttonImages.Hide();
             buttonNetwork.Hide();
+            buttonStart.Hide();
+            buttonStop.Hide();
+
             
         }
 
@@ -102,6 +105,8 @@ namespace LTIOpenstackProject
                 buttonVolumes.Show();
                 buttonImages.Show();
                 buttonNetwork.Show();
+                buttonStart.Show();
+                buttonStop.Show();
                 var instances = openstack.instanceList(scopeToken,serverIP);
                 instancesList = instances;
                 foreach(JToken intance in instances)
