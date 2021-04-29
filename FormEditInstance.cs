@@ -32,7 +32,6 @@ namespace LTIOpenstackProject
             JObject instance = JObject.Parse(response.Content);
             textBoxName.Text = (string)instance["server"].SelectToken("name");
             richTextBoxDesc.Text= (string)instance["server"].SelectToken("description");
-            textBox1.Text = (string)instance["server"].SelectToken("description");
 
         }
 
