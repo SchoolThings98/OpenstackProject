@@ -30,8 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.btnCreateZone = new System.Windows.Forms.Button();
             this.btnUpdateZone = new System.Windows.Forms.Button();
             this.btnDeleteZone = new System.Windows.Forms.Button();
@@ -51,30 +49,12 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(12, 49);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(181, 173);
+            this.listBox1.Size = new System.Drawing.Size(295, 173);
             this.listBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(416, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Informação da Zona";
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(357, 49);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(167, 173);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // btnCreateZone
             // 
-            this.btnCreateZone.Location = new System.Drawing.Point(223, 49);
+            this.btnCreateZone.Location = new System.Drawing.Point(359, 49);
             this.btnCreateZone.Name = "btnCreateZone";
             this.btnCreateZone.Size = new System.Drawing.Size(107, 23);
             this.btnCreateZone.TabIndex = 4;
@@ -84,7 +64,7 @@
             // 
             // btnUpdateZone
             // 
-            this.btnUpdateZone.Location = new System.Drawing.Point(223, 127);
+            this.btnUpdateZone.Location = new System.Drawing.Point(359, 128);
             this.btnUpdateZone.Name = "btnUpdateZone";
             this.btnUpdateZone.Size = new System.Drawing.Size(107, 23);
             this.btnUpdateZone.TabIndex = 5;
@@ -94,7 +74,7 @@
             // 
             // btnDeleteZone
             // 
-            this.btnDeleteZone.Location = new System.Drawing.Point(223, 199);
+            this.btnDeleteZone.Location = new System.Drawing.Point(359, 199);
             this.btnDeleteZone.Name = "btnDeleteZone";
             this.btnDeleteZone.Size = new System.Drawing.Size(107, 23);
             this.btnDeleteZone.TabIndex = 6;
@@ -106,12 +86,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 379);
+            this.ClientSize = new System.Drawing.Size(487, 310);
             this.Controls.Add(this.btnDeleteZone);
             this.Controls.Add(this.btnUpdateZone);
             this.Controls.Add(this.btnCreateZone);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
             this.Name = "FormDNS";
@@ -126,8 +104,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnCreateZone;
         private System.Windows.Forms.Button btnUpdateZone;
         private System.Windows.Forms.Button btnDeleteZone;
