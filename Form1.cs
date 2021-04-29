@@ -42,6 +42,7 @@ namespace LTIOpenstackProject
             this.Hide();
             FormProjects formProjects = new FormProjects(authToken,serverIP);
             formProjects.ShowDialog();
+            
         }
 
         private void btnSignup_Click(object sender, EventArgs e)

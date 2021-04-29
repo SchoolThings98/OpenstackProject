@@ -20,6 +20,7 @@ namespace LTIOpenstackProject
         public String projectID = "";
         public JArray projects = null;
         public JArray instancesList = null;
+
         public FormProjects(string token, string ip)
         {
             InitializeComponent();
@@ -224,6 +225,7 @@ namespace LTIOpenstackProject
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             
+            this.Close();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)

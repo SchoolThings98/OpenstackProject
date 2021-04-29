@@ -385,5 +385,27 @@ namespace LTIOpenstackProject
             //string urlTemp = "http://192.168.113.110:6080/vnc_lite.html?path=%3Ftoken%3D91bd5d0b-9f48-4471-a2ce-8f57c20fc862";
             return url;
         }
+
+        public IRestResponse removeVolume(string serverIP, string scopeToken,string projID, string volID)
+        {
+            var ticketURL = new RestClient("http://" + serverIP + "/volume/v3/" + projID + "/volumes/"+volID);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
+            deleteRequest.AddHeader("x-auth-token", scopeToken);
+
+            IRestResponse ticketResponse = ticketURL.Execute(deleteRequest);
+            Console.WriteLine(ticketResponse);
+            return ticketResponse;
+        }
+
+        public IRestResponse removeImage(string serverIP, string scopeToken,string imageID)
+        {
+            var ticketURL = new RestClient("http://" + serverIP + "/image/v2/images/"+imageID);
+            var deleteRequest = new RestRequest("/", Method.DELETE);
+            deleteRequest.AddHeader("x-auth-token", scopeToken);
+
+            IRestResponse ticketResponse = ticketURL.Execute(deleteRequest);
+            Console.WriteLine(ticketResponse);
+            return ticketResponse;
+        }
     }
 }
