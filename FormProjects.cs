@@ -212,6 +212,11 @@ namespace LTIOpenstackProject
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione uma instancia para editar");
+                return;
+            }
             var instanceName = listBox1.SelectedItem.ToString();
             var instanceID = "";
             foreach (JToken instance in instancesList)

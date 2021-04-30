@@ -66,6 +66,7 @@ namespace LTIOpenstackProject
             }
             else
             {
+                MessageBox.Show(response.StatusCode.ToString());
                 listBox1.Items.Remove(listBox1.SelectedItem);
             }
         }

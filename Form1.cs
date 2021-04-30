@@ -39,7 +39,7 @@ namespace LTIOpenstackProject
             string responseTicket = response.Headers[0].ToString();
             authToken = responseTicket.Substring(responseTicket.IndexOf("=") + 1);
             //Console.WriteLine(authToken);
-            this.Hide();
+            //this.Hide();
             FormProjects formProjects = new FormProjects(authToken,serverIP);
             formProjects.ShowDialog();
             
