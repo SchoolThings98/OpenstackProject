@@ -20,6 +20,7 @@ namespace LTIOpenstackProject
         public String projectID = "";
         public JArray projects = null;
         public JArray instancesList = null;
+
         public FormProjects(string token, string ip)
         {
             InitializeComponent();
@@ -57,6 +58,9 @@ namespace LTIOpenstackProject
             buttonVolumes.Hide();
             buttonImages.Hide();
             buttonNetwork.Hide();
+            buttonStart.Hide();
+            buttonStop.Hide();
+
             
         }
 
@@ -101,6 +105,8 @@ namespace LTIOpenstackProject
                 buttonVolumes.Show();
                 buttonImages.Show();
                 buttonNetwork.Show();
+                buttonStart.Show();
+                buttonStop.Show();
                 var instances = openstack.instanceList(scopeToken,serverIP);
                 instancesList = instances;
                 foreach(JToken intance in instances)
@@ -206,6 +212,11 @@ namespace LTIOpenstackProject
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione uma instancia para editar");
+                return;
+            }
             var instanceName = listBox1.SelectedItem.ToString();
             var instanceID = "";
             foreach (JToken instance in instancesList)
@@ -224,6 +235,7 @@ namespace LTIOpenstackProject
         private void buttonLogout_Click(object sender, EventArgs e)
         {
             
+            this.Close();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)

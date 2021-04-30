@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.buttonUploadImage = new System.Windows.Forms.Button();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
+            this.buttonRemoveImg = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -66,11 +67,22 @@
             // 
             this.openFileDialogImage.FileName = "openFileDialogImage";
             // 
+            // buttonRemoveImg
+            // 
+            this.buttonRemoveImg.Location = new System.Drawing.Point(566, 151);
+            this.buttonRemoveImg.Name = "buttonRemoveImg";
+            this.buttonRemoveImg.Size = new System.Drawing.Size(160, 37);
+            this.buttonRemoveImg.TabIndex = 3;
+            this.buttonRemoveImg.Text = "Remover Imagem";
+            this.buttonRemoveImg.UseVisualStyleBackColor = true;
+            this.buttonRemoveImg.Click += new System.EventHandler(this.buttonRemoveImg_Click);
+            // 
             // FormImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRemoveImg);
             this.Controls.Add(this.buttonUploadImage);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
@@ -88,5 +100,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonUploadImage;
         private System.Windows.Forms.OpenFileDialog openFileDialogImage;
+        private System.Windows.Forms.Button buttonRemoveImg;
     }
 }

@@ -31,6 +31,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonCreateVolume = new System.Windows.Forms.Button();
+            this.buttonRemoveVol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -61,11 +62,22 @@
             this.buttonCreateVolume.UseVisualStyleBackColor = true;
             this.buttonCreateVolume.Click += new System.EventHandler(this.buttonCreateVolume_Click);
             // 
+            // buttonRemoveVol
+            // 
+            this.buttonRemoveVol.Location = new System.Drawing.Point(344, 118);
+            this.buttonRemoveVol.Name = "buttonRemoveVol";
+            this.buttonRemoveVol.Size = new System.Drawing.Size(106, 31);
+            this.buttonRemoveVol.TabIndex = 3;
+            this.buttonRemoveVol.Text = "Remover Volume";
+            this.buttonRemoveVol.UseVisualStyleBackColor = true;
+            this.buttonRemoveVol.Click += new System.EventHandler(this.buttonRemoveVol_Click);
+            // 
             // FormVolume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonRemoveVol);
             this.Controls.Add(this.buttonCreateVolume);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
@@ -82,5 +94,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonCreateVolume;
+        private System.Windows.Forms.Button buttonRemoveVol;
     }
 }
